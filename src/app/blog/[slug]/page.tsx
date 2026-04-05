@@ -20,6 +20,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: post.title,
     description: post.description,
+    ...(post.canonicalUrl && {
+      alternates: { canonical: post.canonicalUrl },
+    }),
     openGraph: {
       title: post.title,
       description: post.description,

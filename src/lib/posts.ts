@@ -23,6 +23,7 @@ export interface PostMeta {
   authorLinkedin?: string;
   authorTwitter?: string;
   authorWebsite?: string;
+  canonicalUrl?: string;
 }
 
 export interface Post extends PostMeta {
@@ -57,6 +58,7 @@ export function getAllPosts(): PostMeta[] {
         authorLinkedin: data.authorLinkedin ?? undefined,
         authorTwitter: data.authorTwitter ?? undefined,
         authorWebsite: data.authorWebsite ?? undefined,
+        canonicalUrl: data.canonicalUrl ?? undefined,
       };
     });
 

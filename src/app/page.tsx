@@ -50,22 +50,6 @@ export default function Home() {
         </section>
       )}
 
-      {/* Substack subscribe embed */}
-      <section className="pt-16 pb-20 border-t border-[var(--color-border)] text-center">
-        <h2 className="text-xl font-bold mb-2">Subscribe</h2>
-        <p className="text-[14px] text-[var(--color-muted)] mb-8">Get new posts delivered to your inbox.</p>
-        <div className="flex justify-center">
-          <iframe
-            src="https://zkami.substack.com/embed"
-            width="480"
-            height="320"
-            style={{ border: "1px solid #EEE", background: "white" }}
-            frameBorder="0"
-            scrolling="no"
-            loading="lazy"
-          />
-        </div>
-      </section>
 
       <KonamiEasterEgg />
     </div>

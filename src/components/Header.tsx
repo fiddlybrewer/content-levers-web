@@ -58,12 +58,6 @@ export default function Header() {
           </Link>
         </div>
 
-        <a
-          href="#subscribe"
-          className="bg-[var(--color-foreground)] text-white text-[13px] font-medium px-5 py-2 rounded-full hover:opacity-80 transition-opacity"
-        >
-          Subscribe
-        </a>
       </nav>
     </header>
   );

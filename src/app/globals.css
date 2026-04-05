@@ -99,7 +99,13 @@ body {
   margin-bottom: 1.25em;
 }
 
-.prose li { margin-bottom: 0.5em; }
+.prose ul { list-style-type: disc !important; }
+.prose ol { list-style-type: decimal !important; }
+
+.prose li {
+  margin-bottom: 0.5em;
+  display: list-item !important;
+}
 
 .prose blockquote {
   border-left: 3px solid var(--color-border);
@@ -117,12 +123,13 @@ body {
 }
 
 .prose pre {
-  background: var(--color-foreground);
-  color: #f5f5f5;
+  background: var(--color-surface);
+  color: var(--color-foreground);
   padding: 1.25em;
   border-radius: 8px;
   overflow-x: auto;
   margin: 1.5em 0;
+  border: 1px solid var(--color-border);
 }
 
 .prose pre code {
@@ -133,7 +140,8 @@ body {
 
 .prose img {
   border-radius: 8px;
-  margin: 2em 0;
+  margin: 2em auto;
+  display: block;
 }
 
 .prose hr {
@@ -200,6 +208,14 @@ body {
   border-color: #EF4444;
 }
 .callout-danger .callout-title { color: #991b1b; }
+
+.callout code {
+  background: rgba(0, 0, 0, 0.06);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.85em;
+  font-family: ui-monospace, monospace;
+}
 
 
 /* ─── Stat Highlight ─── */
