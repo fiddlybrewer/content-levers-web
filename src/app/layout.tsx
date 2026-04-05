@@ -16,9 +16,13 @@ export const metadata: Metadata = {
   },
   description:
     "Actionable SEO strategies, content frameworks, and growth insights for modern marketers.",
+  metadataBase: new URL("https://contentlevers.xyz"),
   openGraph: {
     siteName: "Content Levers",
     type: "website",
+  },
+  other: {
+    "google-site-verification": "Uzulyjj7hAImv43mYlIuwX0eKimxy7tw8dmO20Ac32s",
   },
 };
 

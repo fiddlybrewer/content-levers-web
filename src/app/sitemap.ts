@@ -2,7 +2,7 @@ import { getAllPosts } from "@/lib/posts";
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.SITE_URL || "https://contentlevers.com";
+  const baseUrl = process.env.SITE_URL || "https://contentlevers.xyz";
 
   const posts = getAllPosts().map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,

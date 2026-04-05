@@ -41,7 +41,7 @@ export default async function BlogPost({ params }: Props) {
 
   const tag = post.tags[0];
   const topic = tag ? getTopicMeta(tag) : null;
-  const baseUrl = process.env.SITE_URL || "https://contentlevers.com";
+  const baseUrl = process.env.SITE_URL || "https://contentlevers.xyz";
 
   // Schema.org Article + Person structured data
   const jsonLd = {

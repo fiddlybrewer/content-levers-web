@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 
 const topics = [
   { label: "LLM", slug: "LLM" },
@@ -13,6 +16,9 @@ const topics = [
 ];
 
 export default function Header() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [topicsOpen, setTopicsOpen] = useState(false);
+
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-[var(--color-border)]">
       <nav className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
@@ -26,8 +32,8 @@ export default function Header() {
           />
         </Link>
 
+        {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8 text-[13px] text-[var(--color-foreground)]">
-          {/* Topics dropdown */}
           <div className="relative group">
             <button className="flex items-center gap-1 hover:opacity-60 transition-opacity">
               Topics
@@ -58,7 +64,68 @@ export default function Header() {
           </Link>
         </div>
 
+        {/* Mobile burger */}
+        <button
+          className="md:hidden flex flex-col gap-1.5 p-2"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Menu"
+        >
+          <span className={`block w-5 h-0.5 bg-[var(--color-foreground)] transition-transform ${mobileOpen ? "rotate-45 translate-y-2" : ""}`} />
+          <span className={`block w-5 h-0.5 bg-[var(--color-foreground)] transition-opacity ${mobileOpen ? "opacity-0" : ""}`} />
+          <span className={`block w-5 h-0.5 bg-[var(--color-foreground)] transition-transform ${mobileOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+        </button>
       </nav>
+
+      {/* Mobile menu */}
+      {mobileOpen && (
+        <div className="md:hidden border-t border-[var(--color-border)] bg-white">
+          <div className="max-w-6xl mx-auto px-6 py-4 space-y-1">
+            <button
+              className="flex items-center justify-between w-full py-2 text-[14px] text-[var(--color-foreground)]"
+              onClick={() => setTopicsOpen(!topicsOpen)}
+            >
+              Topics
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 16 16"
+                fill="none"
+                className={`transition-transform ${topicsOpen ? "rotate-180" : ""}`}
+              >
+                <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            {topicsOpen && (
+              <div className="pl-4 space-y-1">
+                {topics.map((topic) => (
+                  <Link
+                    key={topic.slug}
+                    href={`/blog/tag/${encodeURIComponent(topic.slug)}`}
+                    className="block py-1.5 text-[13px] text-[var(--color-muted)] hover:text-[var(--color-foreground)] transition-colors"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {topic.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+            <Link
+              href="/blog"
+              className="block py-2 text-[14px] text-[var(--color-foreground)]"
+              onClick={() => setMobileOpen(false)}
+            >
+              Archive
+            </Link>
+            <Link
+              href="/about"
+              className="block py-2 text-[14px] text-[var(--color-foreground)]"
+              onClick={() => setMobileOpen(false)}
+            >
+              About
+            </Link>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

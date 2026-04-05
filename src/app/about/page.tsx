@@ -6,8 +6,25 @@ export const metadata: Metadata = {
 };
 
 export default function About() {
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Kamila Olexa",
+    "url": "https://contentlevers.xyz/about",
+    "jobTitle": "Growth Marketing Lead",
+    "sameAs": [
+      "https://www.linkedin.com/in/kamila-olexa-190074112/",
+      "https://x.com/consistentlytop",
+      "https://zkami.substack.com",
+    ],
+  };
+
   return (
     <div className="max-w-3xl mx-auto px-6">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
       <section className="pt-14 pb-20">
         <div className="prose">
 

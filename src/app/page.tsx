@@ -10,8 +10,30 @@ export default function Home() {
   const recent = posts.slice(0);
   const allTags = Array.from(new Set(posts.flatMap((p) => p.tags)));
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Content Levers",
+    "url": "https://contentlevers.xyz",
+    "description": "Actionable SEO strategies, content frameworks, and growth insights for modern marketers.",
+    "author": {
+      "@type": "Person",
+      "name": "Kamila Olexa",
+      "url": "https://contentlevers.xyz/about",
+      "sameAs": [
+        "https://www.linkedin.com/in/kamila-olexa-190074112/",
+        "https://x.com/consistentlytop",
+        "https://zkami.substack.com",
+      ],
+    },
+  };
+
   return (
     <div className="max-w-6xl mx-auto px-6">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero */}
       <section className="text-center pt-16 pb-14 border-b border-[var(--color-border)]">
         <LogoPacman />
