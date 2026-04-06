@@ -4,3 +4,9 @@ out
 .DS_Store
 *.tsbuildinfo
 next-env.d.ts
+
+# Private content — not part of the published website
+content/briefs/
+content/research/
+content/CONTENT_GUIDELINES.md
+content/CONTENT_RECOMMENDATIONS.md

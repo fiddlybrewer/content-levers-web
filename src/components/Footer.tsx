@@ -42,11 +42,21 @@ export default function Footer() {
 
           {/* Free tools */}
           <div>
-            <h4 className="text-[var(--color-foreground)] text-xs font-semibold uppercase tracking-wider mb-3">
+            <Link
+              href="/free-tools"
+              className="text-[var(--color-foreground)] text-xs font-semibold uppercase tracking-wider mb-3 inline-block hover:opacity-70 transition-opacity"
+            >
               Free tools
-            </h4>
+            </Link>
             <ul className="space-y-2.5 text-sm">
-              <li className="text-[#ccc]">Coming soon</li>
+              <li>
+                <Link
+                  href="/free-tools/topic-cluster-generator"
+                  className="text-[var(--color-muted)] hover:text-[var(--color-foreground)] transition-colors"
+                >
+                  Topic cluster generator
+                </Link>
+              </li>
             </ul>
           </div>
 
