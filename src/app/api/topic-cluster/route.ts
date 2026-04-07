@@ -36,7 +36,7 @@ export async function POST(req: Request) {
     );
   }
 
-  let body: { url?: string };
+  let body: { url?: string; maxPages?: number };
   try {
     body = await req.json();
   } catch {
@@ -48,8 +48,12 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Please provide a valid URL." }, { status: 400 });
   }
 
+  // Clamp maxPages to a sane range on the server
+  const allowedDepths = [1000, 2500, 5000, 10000];
+  const maxPages = allowedDepths.includes(body.maxPages ?? 0) ? body.maxPages! : 1000;
+
   try {
-    const result = await analyzeSitemap(url);
+    const result = await analyzeSitemap(url, { maxPages });
     if (result.analyzedPages === 0) {
       return NextResponse.json(
         {

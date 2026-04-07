@@ -291,7 +291,7 @@ function ClusterDetail({
             className="text-[11px] uppercase tracking-[0.1em] font-semibold mb-2 opacity-75"
             style={{ color: color.text }}
           >
-            Keywords in this cluster
+            Subtopics covered
           </div>
           <div className="flex flex-wrap gap-2">
             {cell.keywords.map((kw) => (
