@@ -197,7 +197,7 @@ export default function Page() {
         <h2 className="text-[26px] sm:text-[32px] font-bold tracking-tight leading-[1.1] mt-6 mb-10">
           How the topic cluster tool works
         </h2>
-        <div className="grid md:grid-cols-3 gap-8 md:gap-4 relative">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-4 relative">
           <FlowStep
             step={1}
             title="Fetch your sitemap"
@@ -205,11 +205,11 @@ export default function Page() {
             color="#DBEAFE"
             iconColor="#1D4ED8"
           >
-            We read up to 500 URLs from your{" "}
+            Just type your domain. We find your{" "}
             <code className="text-[12px] bg-[var(--color-surface)] px-1.5 py-0.5 rounded">
               sitemap.xml
-            </code>
-            , nested indexes included.
+            </code>{" "}
+            automatically, nested indexes included.
           </FlowStep>
           <FlowStep
             step={2}
@@ -230,6 +230,20 @@ export default function Page() {
           >
             Keywords are scored, stemmed, and grouped into clusters. The largest
             become your topical pillars.
+          </FlowStep>
+          <FlowStep
+            step={4}
+            title="Filter the noise"
+            icon={<FilterIcon />}
+            color="#EDE9FE"
+            iconColor="#6D28D9"
+          >
+            Use regex patterns like{" "}
+            <code className="text-[12px] bg-[var(--color-surface)] px-1.5 py-0.5 rounded">
+              ^/blog/
+            </code>{" "}
+            to drop entire site sections that dilute your topical focus, then
+            re-cluster instantly.
           </FlowStep>
         </div>
       </section>
@@ -671,6 +685,19 @@ function ClusterIcon() {
       <line x1="34" y1="24" x2="39" y2="15" stroke="currentColor" strokeWidth="1.5" />
       <line x1="18" y1="28" x2="13" y2="37" stroke="currentColor" strokeWidth="1.5" />
       <line x1="34" y1="28" x2="39" y2="37" stroke="currentColor" strokeWidth="1.5" />
+    </svg>
+  );
+}
+
+function FilterIcon() {
+  return (
+    <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+      <path
+        d="M6 10H46L32 28V42L20 38V28L6 10Z"
+        stroke="currentColor"
+        strokeWidth="2.2"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }

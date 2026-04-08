@@ -60,57 +60,80 @@ export default function TopicClusterGeneratorClient() {
     return () => clearInterval(interval);
   }, [loading]);
 
-  // Parse the exclude input into an array of trimmed lowercase keywords
-  const excludeKeywords = useMemo(() => {
+  // Parse the exclude input into an array of trimmed lowercase patterns.
+  // Each pattern can be either a plain substring (e.g. "blog") or a regex
+  // (e.g. "^/blog/" or "/blog/.*"). Plain substrings happen to be valid
+  // regexes that match themselves anywhere, so a single regex test handles both.
+  const excludePatterns = useMemo(() => {
     return excludeInput
       .split(",")
       .map((k) => k.trim().toLowerCase())
-      .filter((k) => k.length > 0);
+      .filter((k) => k.length > 0)
+      .map((raw) => {
+        try {
+          return { raw, regex: new RegExp(raw, "i") };
+        } catch {
+          // Invalid regex — fall back to literal substring match
+          return { raw, regex: null as RegExp | null };
+        }
+      });
   }, [excludeInput]);
+
+  // Test whether a URL path matches any of the user's exclude patterns.
+  // Tries regex first (for power users like `^/blog/`), falls back to a
+  // case-insensitive substring includes for plain keywords or invalid regex.
+  function isExcluded(path: string, patterns: typeof excludePatterns): boolean {
+    return patterns.some((p) => {
+      if (p.regex) return p.regex.test(path);
+      return path.includes(p.raw);
+    });
+  }
 
   // Apply the user's exclude filter to the raw URL list once, then reuse
   // the filtered list for both topic clustering and section extraction.
   const filteredUrls = useMemo(() => {
     if (!result) return [];
-    if (excludeKeywords.length === 0) return result.rawUrls;
+    if (excludePatterns.length === 0) return result.rawUrls;
     return result.rawUrls.filter((u) => {
       try {
         const path = new URL(u).pathname.toLowerCase();
-        return !excludeKeywords.some((kw) => path.includes(kw));
+        return !isExcluded(path, excludePatterns);
       } catch {
         return true;
       }
     });
-  }, [result, excludeKeywords]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [result, excludePatterns]);
 
   // Re-cluster topics client-side whenever the filter changes.
   // This is fast (hundreds of ms at most) because clustering is pure string work.
   const displayedTopics = useMemo(() => {
     if (!result) return [];
-    if (excludeKeywords.length === 0) return result.topics;
+    if (excludePatterns.length === 0) return result.topics;
     const pages = filteredUrls.map((u) => ({ url: u }));
     return clusterTopics(pages) as TopicCell[];
-  }, [result, excludeKeywords, filteredUrls]);
+  }, [result, excludePatterns, filteredUrls]);
 
   // Re-extract site sections with the same filter
   const displayedSections = useMemo(() => {
     if (!result) return [];
-    if (excludeKeywords.length === 0) return result.sections;
+    if (excludePatterns.length === 0) return result.sections;
     return extractSections(filteredUrls);
-  }, [result, excludeKeywords, filteredUrls]);
+  }, [result, excludePatterns, filteredUrls]);
 
   // Count of URLs removed by the user's exclude filter
   const excludedCount = useMemo(() => {
-    if (!result || excludeKeywords.length === 0) return 0;
+    if (!result || excludePatterns.length === 0) return 0;
     return result.rawUrls.filter((u) => {
       try {
         const path = new URL(u).pathname.toLowerCase();
-        return excludeKeywords.some((kw) => path.includes(kw));
+        return isExcluded(path, excludePatterns);
       } catch {
         return false;
       }
     }).length;
-  }, [result, excludeKeywords]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [result, excludePatterns]);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -144,7 +167,7 @@ export default function TopicClusterGeneratorClient() {
           <input
             type="text"
             inputMode="url"
-            placeholder="https://yoursite.com/sitemap.xml"
+            placeholder="yoursite.com"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
             disabled={loading}
@@ -184,6 +207,10 @@ export default function TopicClusterGeneratorClient() {
         </div>
 
         <p className="mt-3 text-[12px] text-[var(--color-muted)]">
+          Just type the domain. The tool finds your sitemap automatically. You can also paste a
+          specific sitemap URL like <code className="text-[11px] bg-[var(--color-surface)] px-1 py-0.5 rounded">yoursite.com/sitemap.xml</code> if you want to point to a specific one.
+        </p>
+        <p className="mt-2 text-[12px] text-[var(--color-muted)]">
           Limited to 5 searches per hour per user to keep the tool free and available for everyone.
         </p>
       </form>
@@ -247,25 +274,56 @@ export default function TopicClusterGeneratorClient() {
           {/* Dynamic exclude filter */}
           <div className="mb-6 max-w-2xl mx-auto">
             <label className="block text-[13px] font-semibold text-[var(--color-foreground)] mb-1.5">
-              Exclude URL keywords
+              Exclude URL patterns (regex)
             </label>
             <p className="text-[12px] text-[var(--color-muted)] mb-2">
-              Comma-separated. Any URL whose path contains these words will be ignored. Useful for
-              filtering out noise like <code className="text-[11px] bg-[var(--color-surface)] px-1 py-0.5 rounded">press</code>,{" "}
-              <code className="text-[11px] bg-[var(--color-surface)] px-1 py-0.5 rounded">tag</code>,{" "}
-              <code className="text-[11px] bg-[var(--color-surface)] px-1 py-0.5 rounded">offers</code>, or brand-specific patterns.
+              Comma-separated regex patterns. Any URL whose path matches one will be ignored. Useful
+              for cutting out blog archives, docs, tag pages, locales, or pagination so they
+              don&apos;t dilute the topic clusters.
+            </p>
+            <div className="mb-3 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1 text-[11.5px] text-[var(--color-muted)]">
+              <div>
+                <code className="text-[11px] bg-[var(--color-surface)] px-1 py-0.5 rounded">/blog/</code>{" "}
+                drop /blog/ in any locale
+              </div>
+              <div>
+                <code className="text-[11px] bg-[var(--color-surface)] px-1 py-0.5 rounded">^/blog/</code>{" "}
+                drop only top-level /blog/
+              </div>
+              <div>
+                <code className="text-[11px] bg-[var(--color-surface)] px-1 py-0.5 rounded">/tag/</code>{" "}
+                drop tag archive pages anywhere
+              </div>
+              <div>
+                <code className="text-[11px] bg-[var(--color-surface)] px-1 py-0.5 rounded">^/[a-z]{`{2}`}/</code>{" "}
+                drop locale folders like /fr/ /de/
+              </div>
+              <div>
+                <code className="text-[11px] bg-[var(--color-surface)] px-1 py-0.5 rounded">/page/\d+</code>{" "}
+                drop /page/2 /page/3 etc.
+              </div>
+              <div>
+                <code className="text-[11px] bg-[var(--color-surface)] px-1 py-0.5 rounded">press|author</code>{" "}
+                drop press OR author pages
+              </div>
+            </div>
+            <p className="text-[11px] text-[var(--color-muted)] mb-3 italic">
+              Tip: omit <code className="not-italic text-[11px] bg-[var(--color-surface)] px-1 py-0.5 rounded">^</code> to
+              match a section in any locale (e.g. <code className="not-italic text-[11px] bg-[var(--color-surface)] px-1 py-0.5 rounded">/blog/</code>{" "}
+              catches both <code className="not-italic text-[11px] bg-[var(--color-surface)] px-1 py-0.5 rounded">/blog/foo</code> and{" "}
+              <code className="not-italic text-[11px] bg-[var(--color-surface)] px-1 py-0.5 rounded">/fr/blog/foo</code>).
             </p>
             <input
               type="text"
               value={excludeInput}
               onChange={(e) => setExcludeInput(e.target.value)}
-              placeholder="press, tag, offers, author"
-              className="w-full px-4 py-2.5 rounded-lg border border-[var(--color-border)] bg-white text-[14px] placeholder:text-[var(--color-muted)] focus:outline-none focus:border-[var(--color-foreground)] transition-colors"
+              placeholder="^/blog/, ^/docs/, /tag/"
+              className="w-full px-4 py-2.5 rounded-lg border border-[var(--color-border)] bg-white text-[14px] placeholder:text-[var(--color-muted)] focus:outline-none focus:border-[var(--color-foreground)] transition-colors font-mono"
             />
             {excludedCount > 0 && (
               <div className="mt-2 text-[12px] text-[var(--color-muted)]">
                 Filtered out {excludedCount} URL{excludedCount === 1 ? "" : "s"} matching your
-                exclude keywords.
+                patterns.
               </div>
             )}
           </div>
