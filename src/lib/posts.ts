@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { remark } from "remark";
+import remarkGfm from "remark-gfm";
 import remarkRehype from "remark-rehype";
 import rehypeRaw from "rehype-raw";
 import rehypeStringify from "rehype-stringify";
@@ -75,6 +76,7 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
   const { data, content } = matter(fileContents);
 
   const processedContent = await remark()
+    .use(remarkGfm)
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeRaw)
     .use(rehypeStringify)

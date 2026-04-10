@@ -132,6 +132,7 @@ body {
 }
 
 .prose pre {
+  position: relative;
   background: var(--color-surface);
   color: var(--color-foreground);
   padding: 1.25em;
@@ -139,6 +140,23 @@ body {
   overflow-x: auto;
   margin: 1.5em 0;
   border: 1px solid var(--color-border);
+  font-size: 0.8rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Fade hint on right edge for scrollable code blocks on mobile */
+@media (max-width: 768px) {
+  .prose pre::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 2rem;
+    background: linear-gradient(to right, transparent, var(--color-surface));
+    pointer-events: none;
+    border-radius: 0 8px 8px 0;
+  }
 }
 
 .prose pre code {
@@ -262,9 +280,13 @@ body {
 
 .prose table {
   width: 100%;
-  border-collapse: collapse;
-  margin: 1.5em 0;
-  font-size: 0.9375rem;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 2em 0;
+  font-size: 0.875rem;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .prose thead {
@@ -274,21 +296,38 @@ body {
 .prose th {
   text-align: left;
   font-weight: 600;
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   color: var(--color-muted);
-  padding: 0.75em 1em;
-  border-bottom: 2px solid var(--color-border);
+  padding: 0.875em 1.25em;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .prose td {
-  padding: 0.75em 1em;
+  padding: 0.875em 1.25em;
   border-bottom: 1px solid var(--color-border);
+  color: var(--color-foreground);
+  line-height: 1.5;
 }
 
 .prose tr:last-child td {
   border-bottom: none;
+}
+
+.prose tbody tr:hover {
+  background: var(--color-surface);
+}
+
+.prose td:first-child {
+  font-weight: 500;
+}
+
+.prose table code {
+  font-size: 0.8em;
+  background: var(--color-surface);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
 }
 
 /* ─── Step List ─── */
