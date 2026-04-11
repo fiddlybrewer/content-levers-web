@@ -21,7 +21,7 @@ That is a 97.6% decline in fifteen months. Not the "50% drop" that has been wide
 
 And it is still falling.
 
-When Ryan Robinson published his [ClickUp marketing review](https://www.ryrob.com/clickup-marketing-review/) in January 2026, the blog was at roughly 127K monthly visits. His analysis was solid, but it captured a snapshot of a problem that has since gotten four times worse. On LinkedIn, SEO consultants pointed to "topical overreach" and said Google was punishing ClickUp for ranking outside their lane.
+When Ryan Robinson published his [ClickUp marketing review](https://rightblogger.com/blog/clickup-marketing-review) in January 2026, the blog was at roughly 127K monthly visits. His analysis was solid, but it captured a snapshot of a problem that has since gotten four times worse. On LinkedIn, SEO consultants pointed to "topical overreach" and said Google was punishing ClickUp for ranking outside their lane.
 
 Both of those explanations seemed incomplete, so I looked at the data.
 
