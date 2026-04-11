@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <rect width="700" height="400" fill="#fafafa" rx="12"/>
+
+  <text x="80" y="32" font-size="15" font-weight="600" fill="#1a1a1a">Blog organic traffic vs. paid traffic</text>
+
+  <!-- Y axis: 0 to 1.8M. Chart area y=50..340 = 290px -->
+  <line x1="80" y1="340" x2="640" y2="340" stroke="#e5e5e5" stroke-width="1"/>
+  <line x1="80" y1="292" x2="640" y2="292" stroke="#e5e5e5" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="80" y1="243" x2="640" y2="243" stroke="#e5e5e5" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="80" y1="195" x2="640" y2="195" stroke="#e5e5e5" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="80" y1="147" x2="640" y2="147" stroke="#e5e5e5" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="80" y1="98" x2="640" y2="98" stroke="#e5e5e5" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="80" y1="50" x2="640" y2="50" stroke="#e5e5e5" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <text x="72" y="344" font-size="11" fill="#888" text-anchor="end">0</text>
+  <text x="72" y="296" font-size="11" fill="#888" text-anchor="end">300K</text>
+  <text x="72" y="247" font-size="11" fill="#888" text-anchor="end">600K</text>
+  <text x="72" y="199" font-size="11" fill="#888" text-anchor="end">900K</text>
+  <text x="72" y="151" font-size="11" fill="#888" text-anchor="end">1.2M</text>
+  <text x="72" y="102" font-size="11" fill="#888" text-anchor="end">1.5M</text>
+  <text x="72" y="54" font-size="11" fill="#888" text-anchor="end">1.8M</text>
+
+  <!-- 8 data points: Feb25, Mar25, Apr25, May25, Jun25, Oct25, Nov25, Apr26
+       x: 80..640 = 560px, 7 gaps = 80px each
+       Organic scale: y = 340 - (value/1800000)*290
+       Feb25: 1163137 -> 340-187.5 = 152.5
+       Mar25: 942293  -> 340-151.9 = 188.1
+       Apr25: 492450  -> 340-79.4 = 260.6
+       May25: 443016  -> 340-71.4 = 268.6
+       Jun25: 364093  -> 340-58.7 = 281.3
+       Oct25: 134111  -> 340-21.6 = 318.4
+       Nov25: 130419  -> 340-21.0 = 319.0
+       Apr26: 28790   -> 340-4.6 = 335.4
+
+       Paid scale: same
+       Feb25: 47671   -> 340-7.7 = 332.3
+       Mar25: 569609  -> 340-91.8 = 248.2
+       Apr25: 1653983 -> 340-266.5 = 73.5
+       May25: 184743  -> 340-29.8 = 310.2
+       Jun25: 145544  -> 340-23.5 = 316.5
+       Oct25: 267570  -> 340-43.1 = 296.9
+       Nov25: 191017  -> 340-30.8 = 309.2
+       Apr26: 3530    -> 340-0.6 = 339.4
+  -->
+
+  <!-- X labels -->
+  <text x="80" y="360" font-size="10" fill="#888" text-anchor="middle">Feb 25</text>
+  <text x="160" y="360" font-size="10" fill="#888" text-anchor="middle">Mar</text>
+  <text x="240" y="360" font-size="10" fill="#888" text-anchor="middle">Apr</text>
+  <text x="320" y="360" font-size="10" fill="#888" text-anchor="middle">May</text>
+  <text x="400" y="360" font-size="10" fill="#888" text-anchor="middle">Jun</text>
+  <text x="480" y="360" font-size="10" fill="#888" text-anchor="middle">Oct</text>
+  <text x="560" y="360" font-size="10" fill="#888" text-anchor="middle">Nov</text>
+  <text x="640" y="360" font-size="10" fill="#888" text-anchor="middle">Apr 26</text>
+
+  <!-- Organic line (purple) -->
+  <polyline points="80,153 160,188 240,261 320,269 400,281 480,318 560,319 640,335" fill="none" stroke="#7c3aed" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="80" cy="153" r="4" fill="#7c3aed"/>
+  <circle cx="240" cy="261" r="3.5" fill="#7c3aed"/>
+  <circle cx="640" cy="335" r="3.5" fill="#7c3aed"/>
+
+  <!-- Paid line (orange/amber) -->
+  <polyline points="80,332 160,248 240,74 320,310 400,317 480,297 560,309 640,339" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="80" cy="332" r="3.5" fill="#f59e0b"/>
+  <circle cx="240" cy="74" r="4.5" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+  <circle cx="640" cy="339" r="3.5" fill="#f59e0b"/>
+
+  <!-- Value labels -->
+  <text x="80" y="145" font-size="10" fill="#7c3aed" text-anchor="middle">1.16M</text>
+  <text x="640" y="330" font-size="10" fill="#7c3aed" text-anchor="start"> 29K</text>
+  <text x="240" y="65" font-size="11" font-weight="600" fill="#f59e0b" text-anchor="middle">1.65M paid</text>
+  <text x="640" y="350" font-size="10" fill="#f59e0b" text-anchor="start"> 3.5K</text>
+
+  <!-- Annotation -->
+  <rect x="195" y="84" width="90" height="16" rx="3" fill="#fffbeb"/>
+  <text x="240" y="95" font-size="8.5" fill="#b45309" text-anchor="middle">Panic buy</text>
+
+  <!-- Legend -->
+  <line x1="430" y1="26" x2="455" y2="26" stroke="#7c3aed" stroke-width="2.5"/>
+  <text x="460" y="30" font-size="11" fill="#7c3aed">Organic</text>
+  <line x1="530" y1="26" x2="555" y2="26" stroke="#f59e0b" stroke-width="2.5"/>
+  <text x="560" y="30" font-size="11" fill="#f59e0b">Paid</text>
+</svg>

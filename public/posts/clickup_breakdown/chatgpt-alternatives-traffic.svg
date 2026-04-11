@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <defs>
+    <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0.01"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="420" fill="#fafafa" rx="12"/>
+
+  <!-- Title -->
+  <text x="80" y="32" font-size="15" font-weight="600" fill="#1a1a1a">/blog/chatgpt-alternatives/ organic traffic</text>
+
+  <!-- Chart area: x=80..760, y=50..360 -->
+  <!-- Y axis gridlines and labels -->
+  <line x1="80" y1="360" x2="760" y2="360" stroke="#e5e5e5" stroke-width="1"/>
+  <line x1="80" y1="298" x2="760" y2="298" stroke="#e5e5e5" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="80" y1="236" x2="760" y2="236" stroke="#e5e5e5" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="80" y1="174" x2="760" y2="174" stroke="#e5e5e5" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="80" y1="112" x2="760" y2="112" stroke="#e5e5e5" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="80" y1="50" x2="760" y2="50" stroke="#e5e5e5" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <text x="72" y="364" font-size="11" fill="#888" text-anchor="end">0</text>
+  <text x="72" y="302" font-size="11" fill="#888" text-anchor="end">25K</text>
+  <text x="72" y="240" font-size="11" fill="#888" text-anchor="end">50K</text>
+  <text x="72" y="178" font-size="11" fill="#888" text-anchor="end">75K</text>
+  <text x="72" y="116" font-size="11" fill="#888" text-anchor="end">100K</text>
+  <text x="72" y="54" font-size="11" fill="#888" text-anchor="end">125K</text>
+
+  <!-- X axis labels
+       Data points (10): Apr24, Jul24, Sep24(avg), Nov24, Jan25, Feb25, Mar25, Apr25, Sep25, Apr26
+       x positions spread across 80..760 = 680px, 9 gaps = ~75.5px each
+  -->
+  <text x="80" y="380" font-size="10" fill="#888" text-anchor="middle">Apr 24</text>
+  <text x="156" y="380" font-size="10" fill="#888" text-anchor="middle">Jul 24</text>
+  <text x="231" y="380" font-size="10" fill="#888" text-anchor="middle">Sep 24</text>
+  <text x="307" y="380" font-size="10" fill="#888" text-anchor="middle">Nov 24</text>
+  <text x="383" y="380" font-size="10" fill="#888" text-anchor="middle">Jan 25</text>
+  <text x="459" y="380" font-size="10" fill="#888" text-anchor="middle">Feb 25</text>
+  <text x="534" y="380" font-size="10" fill="#888" text-anchor="middle">Mar 25</text>
+  <text x="610" y="380" font-size="10" fill="#888" text-anchor="middle">Apr 25</text>
+  <text x="686" y="380" font-size="10" fill="#888" text-anchor="middle">Sep 25</text>
+  <text x="760" y="380" font-size="10" fill="#888" text-anchor="middle">Apr 26</text>
+
+  <!-- Data points scaled: max=112,017 maps to y=50, 0 maps to y=360. Scale: y = 360 - (value/112017)*310
+       Apr24: 27676  -> y = 360 - (27676/112017)*310 = 360 - 76.6 = 283.4
+       Jul24: 6685   -> y = 360 - (6685/112017)*310 = 360 - 18.5 = 341.5
+       Sep24: 3950   -> y = 360 - (3950/112017)*310 = 360 - 10.9 = 349.1
+       Nov24: 38721  -> y = 360 - (38721/112017)*310 = 360 - 107.1 = 252.9
+       Jan25: 107348 -> y = 360 - (107348/112017)*310 = 360 - 297.1 = 62.9
+       Feb25: 112017 -> y = 360 - (112017/112017)*310 = 360 - 310 = 50
+       Mar25: 70101  -> y = 360 - (70101/112017)*310 = 360 - 194.0 = 166.0
+       Apr25: 32740  -> y = 360 - (32740/112017)*310 = 360 - 90.6 = 269.4
+       Sep25: 7827   -> y = 360 - (7827/112017)*310 = 360 - 21.7 = 338.3
+       Apr26: 446    -> y = 360 - (446/112017)*310 = 360 - 1.2 = 358.8
+  -->
+
+  <!-- Area fill -->
+  <polygon points="80,283 156,342 231,349 307,253 383,63 459,50 534,166 610,269 686,338 760,359 760,360 80,360" fill="url(#areaGrad)"/>
+
+  <!-- Line -->
+  <polyline points="80,283 156,342 231,349 307,253 383,63 459,50 534,166 610,269 686,338 760,359" fill="none" stroke="#7c3aed" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+
+  <!-- Data points -->
+  <circle cx="80" cy="283" r="4" fill="#7c3aed"/>
+  <circle cx="156" cy="342" r="4" fill="#7c3aed"/>
+  <circle cx="231" cy="349" r="4" fill="#7c3aed"/>
+  <circle cx="307" cy="253" r="4" fill="#7c3aed"/>
+  <circle cx="383" cy="63" r="4" fill="#7c3aed"/>
+  <circle cx="459" cy="50" r="4.5" fill="#7c3aed" stroke="#fff" stroke-width="2"/>
+  <circle cx="534" cy="166" r="4" fill="#7c3aed"/>
+  <circle cx="610" cy="269" r="4" fill="#7c3aed"/>
+  <circle cx="686" cy="338" r="4" fill="#7c3aed"/>
+  <circle cx="760" cy="359" r="4" fill="#7c3aed"/>
+
+  <!-- Value labels for key points -->
+  <text x="80" y="273" font-size="10" fill="#555" text-anchor="middle">27.7K</text>
+  <text x="156" y="355" font-size="10" fill="#555" text-anchor="middle">6.7K</text>
+  <text x="307" y="243" font-size="10" fill="#555" text-anchor="middle">38.7K</text>
+  <text x="459" y="42" font-size="11" font-weight="600" fill="#7c3aed" text-anchor="middle">112K</text>
+  <text x="534" y="156" font-size="10" fill="#555" text-anchor="middle">70.1K</text>
+  <text x="760" y="349" font-size="10" fill="#555" text-anchor="middle">446</text>
+
+  <!-- Annotation: March 2025 Core Update -->
+  <line x1="534" y1="166" x2="534" y2="395" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="534" y="405" font-size="9" fill="#ef4444" text-anchor="middle">March 2025 Core Update</text>
+
+  <!-- Annotation: V6 rewrite -->
+  <rect x="636" y="295" width="68" height="16" rx="3" fill="#fef2f2"/>
+  <text x="670" y="306" font-size="8.5" fill="#ef4444" text-anchor="middle">V6 rewrite</text>
+</svg>

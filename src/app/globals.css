@@ -287,9 +287,7 @@ body {
   border: 1px solid var(--color-border);
   border-radius: 12px;
   overflow: hidden;
-  display: block;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+  table-layout: auto;
 }
 
 .prose thead {

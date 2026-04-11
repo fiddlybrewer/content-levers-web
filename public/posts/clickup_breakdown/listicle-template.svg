@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 520" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <rect width="360" height="520" fill="#fafafa" rx="12"/>
+
+  <text x="180" y="28" font-size="13" font-weight="600" fill="#1a1a1a" text-anchor="middle">ClickUp listicle template (repeated per tool)</text>
+
+  <!-- Block 1 -->
+  <rect x="30" y="46" width="300" height="40" rx="6" fill="#f3f0ff" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="180" y="70" font-size="12" fill="#7c3aed" text-anchor="middle" font-weight="500">Logo + name + tagline</text>
+
+  <!-- Arrow -->
+  <line x1="180" y1="86" x2="180" y2="100" stroke="#d4d4d8" stroke-width="1.5"/>
+  <polygon points="175,98 180,106 185,98" fill="#d4d4d8"/>
+
+  <!-- Block 2 -->
+  <rect x="30" y="108" width="300" height="40" rx="6" fill="#f3f0ff" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="180" y="132" font-size="12" fill="#7c3aed" text-anchor="middle" font-weight="500">Screenshot</text>
+
+  <!-- Arrow -->
+  <line x1="180" y1="148" x2="180" y2="162" stroke="#d4d4d8" stroke-width="1.5"/>
+  <polygon points="175,160 180,168 185,160" fill="#d4d4d8"/>
+
+  <!-- Block 3 -->
+  <rect x="30" y="170" width="300" height="40" rx="6" fill="#f3f0ff" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="180" y="194" font-size="12" fill="#7c3aed" text-anchor="middle" font-weight="500">2-3 paragraph description</text>
+
+  <!-- Arrow -->
+  <line x1="180" y1="210" x2="180" y2="224" stroke="#d4d4d8" stroke-width="1.5"/>
+  <polygon points="175,222 180,230 185,222" fill="#d4d4d8"/>
+
+  <!-- Block 4 -->
+  <rect x="30" y="232" width="300" height="40" rx="6" fill="#f3f0ff" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="180" y="256" font-size="12" fill="#7c3aed" text-anchor="middle" font-weight="500">"Best features" bullet list</text>
+
+  <!-- Arrow -->
+  <line x1="180" y1="272" x2="180" y2="286" stroke="#d4d4d8" stroke-width="1.5"/>
+  <polygon points="175,284 180,292 185,284" fill="#d4d4d8"/>
+
+  <!-- Block 5 - highlighted -->
+  <rect x="30" y="294" width="300" height="40" rx="6" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="180" y="318" font-size="12" fill="#ef4444" text-anchor="middle" font-weight="500">"Limitations" (always shorter for ClickUp)</text>
+
+  <!-- Arrow -->
+  <line x1="180" y1="334" x2="180" y2="348" stroke="#d4d4d8" stroke-width="1.5"/>
+  <polygon points="175,346 180,354 185,346" fill="#d4d4d8"/>
+
+  <!-- Block 6 -->
+  <rect x="30" y="356" width="300" height="40" rx="6" fill="#f3f0ff" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="180" y="380" font-size="12" fill="#7c3aed" text-anchor="middle" font-weight="500">Pricing table</text>
+
+  <!-- Arrow -->
+  <line x1="180" y1="396" x2="180" y2="410" stroke="#d4d4d8" stroke-width="1.5"/>
+  <polygon points="175,408 180,416 185,408" fill="#d4d4d8"/>
+
+  <!-- Block 7 -->
+  <rect x="30" y="418" width="300" height="40" rx="6" fill="#f3f0ff" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="180" y="442" font-size="12" fill="#7c3aed" text-anchor="middle" font-weight="500">G2/Capterra ratings</text>
+
+  <!-- Arrow -->
+  <line x1="180" y1="458" x2="180" y2="472" stroke="#d4d4d8" stroke-width="1.5"/>
+  <polygon points="175,470 180,478 185,470" fill="#d4d4d8"/>
+
+  <!-- Block 8 -->
+  <rect x="30" y="480" width="300" height="32" rx="6" fill="#f3f0ff" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="180" y="500" font-size="12" fill="#7c3aed" text-anchor="middle" font-weight="500">User quote</text>
+</svg>

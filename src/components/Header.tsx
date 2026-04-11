@@ -5,14 +5,13 @@ import Image from "next/image";
 import { useState } from "react";
 
 const topics = [
-  { label: "LLM", slug: "LLM" },
-  { label: "Strategy", slug: "Strategy" },
-  { label: "Resources", slug: "Resources" },
   { label: "Breakdown", slug: "Breakdown" },
   { label: "SEO", slug: "SEO" },
-  { label: "Technical SEO", slug: "Technical SEO" },
-  { label: "Growth", slug: "Growth" },
   { label: "Content", slug: "Content" },
+  { label: "Strategy", slug: "Strategy" },
+  { label: "Building", slug: "Building" },
+  { label: "LLM", slug: "LLM" },
+  { label: "Experiments", slug: "Experiments" },
 ];
 
 export default function Header() {
