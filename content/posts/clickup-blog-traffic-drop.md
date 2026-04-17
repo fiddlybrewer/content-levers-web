@@ -21,7 +21,7 @@ That is a 97.6% decline in fifteen months. Not the "50% drop" that has been wide
 
 And it is still falling.
 
-When Ryan Robinson published his [ClickUp marketing review](https://www.ryrob.com/clickup-marketing-review/) in January 2026, the blog was at roughly 127K monthly visits. His analysis was solid, but it captured a snapshot of a problem that has since gotten four times worse. On LinkedIn, SEO consultants pointed to "topical overreach" and said Google was punishing ClickUp for ranking outside their lane.
+When Ryan Robinson published his [ClickUp marketing review](https://rightblogger.com/blog/clickup-marketing-review) in January 2026, the blog was at roughly 127K monthly visits. His analysis was solid, but it captured a snapshot of a problem that has since gotten four times worse. On LinkedIn, SEO consultants pointed to "topical overreach" and said Google was punishing ClickUp for ranking outside their lane.
 
 Both of those explanations seemed incomplete, so I looked at the data.
 
@@ -377,13 +377,13 @@ The sites that replaced ClickUp in the "chatgpt alternatives" SERP show a patter
 
 | Self-promotion level | Site             | Rank | Tools listed | Self at #1?      | CTAs        |
 | -------------------- | ---------------- | ---- | ------------ | ---------------- | ----------- |
-| None                 | Zapier (DR 91)   | #2   | 8            | Not in list      | 1           |
+| Subtle               | Zapier (DR 91)   | #2   | 8            | Yes, #3 and #7   | 3 (intro)   |
 | Subtle               | WotNot (DR 58)   | #8   | 8            | Not in main list | 5 (sidebar) |
 | Moderate             | Saner.ai (DR 46) | #10  | 9            | Yes, 1.7x longer | 3           |
 | Extreme              | ClickUp (DR 90)  | #20  | 20           | Yes, 4.3x longer | 14+         |
 
 
-It seems the less you promote yourself, the higher you rank. And domain authority does not override this. ClickUp (DR 90) is outranked by a DR 46 site and a DR 58 site. Content quality is overriding domain strength.
+Zapier does include itself in the list (at #3 and #7) and runs CTAs in the intro, but the promotion is woven into genuinely useful editorial content rather than dominating it. The gradient still holds: the more aggressively you self-promote at the expense of editorial quality, the worse you rank. Domain authority does not override this. ClickUp (DR 90) is outranked by a DR 46 site and a DR 58 site.
 
 ## The Zapier comparison
 
@@ -449,7 +449,7 @@ The variable is not what topics you cover. It is how you cover them.
 
 The root cause was not topical overreach. It was multiple compounding failures across content strategy, execution, and technical SEO.
 
-**The content never matched search intent.** When someone searches "chatgpt alternatives," they want a curated list of genuine alternatives with honest assessments. Zapier understood this: 8 relevant tools, editorial opinions, no self-promotion - which makes sense for them. ClickUp treated it as a keyword to capture: 20 tools (mixing up use cases), ClickUp at #1, 14+ CTAs. The page was optimized for ClickUp's conversion funnel, not for the searcher's question. This mismatch is quite possibly replicated across 7,000+ pages.
+**The content never matched search intent.** When someone searches "chatgpt alternatives," they want a curated list of genuine alternatives with honest assessments. Zapier understood this: 8 relevant tools, editorial opinions, and self-promotion that serves the reader (their own products appear at #3 and #7 but get the same honest treatment as the rest). ClickUp treated it as a keyword to capture: 20 tools (mixing up use cases), ClickUp at #1, 14+ CTAs. The page was optimized for ClickUp's conversion funnel, not for the searcher's question. This mismatch is quite possibly replicated across 7,000+ pages.
 
 **The technical SEO was neglected.** Broken schema with unresolved `[year]` template variables and unsourced claims about competitors. These are individually small issues, but at scale across thousands of pages they compound into a pattern of low-quality optimization.
 
