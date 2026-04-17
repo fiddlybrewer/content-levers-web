@@ -375,15 +375,15 @@ ClickUp is nowhere in the top 10 for their own product verticals. The traffic wa
 The sites that replaced ClickUp in the "chatgpt alternatives" SERP show a pattern:
 
 
-| Self-promotion level | Site             | Rank | Tools listed | Self at #1?      | CTAs        |
-| -------------------- | ---------------- | ---- | ------------ | ---------------- | ----------- |
-| Subtle               | Zapier (DR 91)   | #2   | 8            | Yes, #3 and #7   | 3 (intro)   |
-| Subtle               | WotNot (DR 58)   | #8   | 8            | Not in main list | 5 (sidebar) |
-| Moderate             | Saner.ai (DR 46) | #10  | 9            | Yes, 1.7x longer | 3           |
-| Extreme              | ClickUp (DR 90)  | #20  | 20           | Yes, 4.3x longer | 14+         |
+| Site             | Rank | Tools listed | Own product placement | CTAs |
+| ---------------- | ---- | ------------ | --------------------- | ---- |
+| Zapier (DR 91)   | #2   | 8            | Yes, #3 and #7        | ~10  |
+| WotNot (DR 58)   | #8   | 8            | No                    | 3-4  |
+| Saner.ai (DR 46) | #10  | 9            | Yes, #1               | 2    |
+| ClickUp (DR 90)  | #20  | 20           | Yes, #1, 4.3x longer  | 14+  |
 
 
-Zapier does include itself in the list (at #3 and #7) and runs CTAs in the intro, but the promotion is woven into genuinely useful editorial content rather than dominating it. The gradient still holds: the more aggressively you self-promote at the expense of editorial quality, the worse you rank. Domain authority does not override this. ClickUp (DR 90) is outranked by a DR 46 site and a DR 58 site.
+Zapier has the most CTAs on this list and still ranks #2. The difference is not how much you promote, it is whether the promotion degrades the content. Zapier's self-listings get the same editorial treatment as every other tool. ClickUp gives itself 4.3x more space than competitors and pads the list to 20 tools to justify the placement. Domain authority does not override this. ClickUp (DR 90) is outranked by a DR 46 site and a DR 58 site.
 
 ## The Zapier comparison
 
@@ -449,7 +449,7 @@ The variable is not what topics you cover. It is how you cover them.
 
 The root cause was not topical overreach. It was multiple compounding failures across content strategy, execution, and technical SEO.
 
-**The content never matched search intent.** When someone searches "chatgpt alternatives," they want a curated list of genuine alternatives with honest assessments. Zapier understood this: 8 relevant tools, editorial opinions, and self-promotion that serves the reader (their own products appear at #3 and #7 but get the same honest treatment as the rest). ClickUp treated it as a keyword to capture: 20 tools (mixing up use cases), ClickUp at #1, 14+ CTAs. The page was optimized for ClickUp's conversion funnel, not for the searcher's question. This mismatch is quite possibly replicated across 7,000+ pages.
+**The content never matched search intent.** When someone searches "chatgpt alternatives," they want a curated list of genuine alternatives with honest assessments. Zapier runs ~10 CTAs and lists itself at #3 and #7, but the editorial treats its own products the same way it treats competitors. ClickUp treated the query as a keyword to capture: 20 tools (mixing up use cases), ClickUp at #1 with 4.3x more space, 14+ CTAs. The page was optimized for ClickUp's conversion funnel, not for the searcher's question. This mismatch is quite possibly replicated across 7,000+ pages.
 
 **The technical SEO was neglected.** Broken schema with unresolved `[year]` template variables and unsourced claims about competitors. These are individually small issues, but at scale across thousands of pages they compound into a pattern of low-quality optimization.
 
