@@ -267,7 +267,7 @@ This structure is applied identically across 7,000+ pages. ClickUp's limitations
 ### Technical SEO
 
 ![ClickUp schema showing [year] template variable](/posts/clickup_breakdown/clickup_schema.webp)
-Checked via [ContentLens](https://chromewebstore.google.com/detail/contentlens-on-page-seo-a/ldelidibimmnlbnenahilakkakbdnkkg) - a free on-page SEO checker 
+Checked via [ContentLens](https://contentlevers.xyz/free-tools/content-lens) - a free on-page SEO checker 
 
 The technical SEO reflects this too. Using a dynamic year variable in titles is common and fine. But ClickUp's implementation is broken: the HTML renders "2026" correctly, while the JSON-LD schema still contains a literal `[year]` in three places (the Article headline, the WebPage name, and the BreadcrumbList). Google's structured data parser reads the schema directly and sees `[year]` as the literal text.
 
