@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About",
   description: "Hey, I'm Kamila. I write about SEO, content strategy, and growth marketing. Data over opinions. Frameworks over fluff.",
+  alternates: {
+    canonical: "https://contentlevers.xyz/about",
+  },
 };
 
 export default function About() {

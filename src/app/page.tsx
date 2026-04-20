@@ -1,8 +1,15 @@
+import type { Metadata } from "next";
 import { getAllPosts } from "@/lib/posts";
 import FilterablePosts from "@/components/FilterablePosts";
 import SearchablePosts from "@/components/SearchablePosts";
 import KonamiEasterEgg from "@/components/KonamiEasterEgg";
 import LogoPacman from "@/components/LogoPacman";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://contentlevers.xyz",
+  },
+};
 
 export default function Home() {
   const posts = getAllPosts();

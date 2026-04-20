@@ -20,9 +20,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: post.title,
     description: post.description,
-    ...(post.canonicalUrl && {
-      alternates: { canonical: post.canonicalUrl },
-    }),
+    alternates: {
+      canonical: post.canonicalUrl || `https://contentlevers.xyz/blog/${slug}`,
+    },
     openGraph: {
       title: post.title,
       description: post.description,
@@ -30,6 +30,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       publishedTime: post.date,
       ...(post.updatedDate && { modifiedTime: post.updatedDate }),
       ...(post.author && { authors: [post.author] }),
+      ...(post.ogImage && {
+        images: [{ url: post.ogImage, width: 1200, height: 630 }],
+      }),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+      ...(post.ogImage && { images: [post.ogImage] }),
     },
   };
 }

@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Articles",
   description:
     "All articles from Content Levers — SEO strategies, content frameworks, and growth playbooks.",
+  alternates: {
+    canonical: "https://contentlevers.xyz/blog",
+  },
 };
 
 export default function BlogIndex() {

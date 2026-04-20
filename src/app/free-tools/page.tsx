@@ -22,7 +22,7 @@ interface Tool {
   title: string;
   tagline: string;
   description: string;
-  preview: "treemap" | "comingSoon";
+  preview: "treemap" | "contentlens" | "comingSoon";
   status: "live" | "soon";
 }
 
@@ -34,6 +34,15 @@ const tools: Tool[] = [
     description:
       "Paste your sitemap and get a visual treemap of your site's topics. Measure your topical authority and find unrelated content hurting your SEO.",
     preview: "treemap",
+    status: "live",
+  },
+  {
+    slug: "content-lens",
+    title: "ContentLens",
+    tagline: "On-page SEO audit in Chrome's side panel",
+    description:
+      "Free Chrome extension that audits any webpage's SEO in one click. Titles, schema, E-E-A-T, headings, images. Copy as markdown for Claude or ChatGPT.",
+    preview: "contentlens",
     status: "live",
   },
 ];
@@ -76,6 +85,7 @@ function ToolCard({ tool }: { tool: Tool }) {
     >
       <div className="aspect-[16/9] bg-[var(--color-surface)] relative overflow-hidden border-b border-[var(--color-border)]">
         {tool.preview === "treemap" && <TreemapPreview />}
+        {tool.preview === "contentlens" && <ContentLensPreview />}
       </div>
       <div className="p-5">
         <div className="flex items-center gap-2 mb-2">
@@ -170,6 +180,47 @@ function TreemapPreview() {
           </div>
         </div>
       ))}
+    </div>
+  );
+}
+
+// Mini side-panel preview for ContentLens card
+function ContentLensPreview() {
+  return (
+    <div className="absolute inset-3 rounded-lg overflow-hidden bg-white border border-[var(--color-border)] flex">
+      <div className="flex-1 p-3 border-r border-[var(--color-border)]">
+        <div className="h-2 w-3/4 bg-gray-200 rounded mb-2" />
+        <div className="h-1.5 w-1/2 bg-gray-100 rounded mb-3" />
+        <div className="h-16 bg-[var(--color-surface)] rounded mb-2" />
+        <div className="h-1.5 w-full bg-gray-100 rounded mb-1" />
+        <div className="h-1.5 w-5/6 bg-gray-100 rounded" />
+      </div>
+      <div className="w-[110px] p-2 space-y-1.5">
+        <div className="flex justify-between items-center">
+          <div className="text-[6px] uppercase tracking-wider text-[var(--color-muted)] font-semibold">Title</div>
+          <div className="bg-[#D1FAE5] text-[#047857] text-[6px] font-bold px-1 rounded-full">49</div>
+        </div>
+        <div className="h-px bg-[var(--color-border)]" />
+        <div className="flex justify-between items-center">
+          <div className="text-[6px] uppercase tracking-wider text-[var(--color-muted)] font-semibold">Meta</div>
+          <div className="bg-[#FEF3C7] text-[#B45309] text-[6px] font-bold px-1 rounded-full">62</div>
+        </div>
+        <div className="h-px bg-[var(--color-border)]" />
+        <div className="flex justify-between items-center">
+          <div className="text-[6px] uppercase tracking-wider text-[var(--color-muted)] font-semibold">Schema</div>
+          <div className="bg-[#D1FAE5] text-[#047857] text-[6px] font-bold px-1 rounded-full">3</div>
+        </div>
+        <div className="h-px bg-[var(--color-border)]" />
+        <div className="flex justify-between items-center">
+          <div className="text-[6px] uppercase tracking-wider text-[var(--color-muted)] font-semibold">Alt</div>
+          <div className="bg-[#FEE2E2] text-[#DC2626] text-[6px] font-bold px-1 rounded-full">62%</div>
+        </div>
+        <div className="h-px bg-[var(--color-border)]" />
+        <div className="flex justify-between items-center">
+          <div className="text-[6px] uppercase tracking-wider text-[var(--color-muted)] font-semibold">LCP</div>
+          <div className="bg-[#FEF3C7] text-[#B45309] text-[6px] font-bold px-1 rounded-full">2.8s</div>
+        </div>
+      </div>
     </div>
   );
 }

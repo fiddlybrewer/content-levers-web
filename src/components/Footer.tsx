@@ -57,6 +57,14 @@ export default function Footer() {
                   Topic cluster generator
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/free-tools/content-lens"
+                  className="text-[var(--color-muted)] hover:text-[var(--color-foreground)] transition-colors"
+                >
+                  ContentLens
+                </Link>
+              </li>
             </ul>
           </div>
 

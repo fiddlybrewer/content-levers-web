@@ -25,10 +25,17 @@ export interface PostMeta {
   authorTwitter?: string;
   authorWebsite?: string;
   canonicalUrl?: string;
+  ogImage?: string;
 }
 
 export interface Post extends PostMeta {
   contentHtml: string;
+}
+
+/** Pull the first markdown image path from raw content. */
+function extractFirstImage(markdown: string): string | undefined {
+  const match = markdown.match(/!\[.*?\]\(([^)]+)\)/);
+  return match?.[1] ?? undefined;
 }
 
 export function getAllPosts(): PostMeta[] {
@@ -42,7 +49,7 @@ export function getAllPosts(): PostMeta[] {
       const slug = filename.replace(/\.md$/, "");
       const fullPath = path.join(postsDirectory, filename);
       const fileContents = fs.readFileSync(fullPath, "utf8");
-      const { data } = matter(fileContents);
+      const { data, content } = matter(fileContents);
 
       return {
         slug,
@@ -60,6 +67,7 @@ export function getAllPosts(): PostMeta[] {
         authorTwitter: data.authorTwitter ?? undefined,
         authorWebsite: data.authorWebsite ?? undefined,
         canonicalUrl: data.canonicalUrl ?? undefined,
+        ogImage: data.thumbnail ?? extractFirstImage(content),
       };
     });
 
@@ -98,6 +106,8 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
     authorLinkedin: data.authorLinkedin ?? undefined,
     authorTwitter: data.authorTwitter ?? undefined,
     authorWebsite: data.authorWebsite ?? undefined,
+    canonicalUrl: data.canonicalUrl ?? undefined,
+    ogImage: data.thumbnail ?? extractFirstImage(content),
     contentHtml,
   };
 }
